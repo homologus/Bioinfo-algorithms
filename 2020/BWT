@@ -1,0 +1,17 @@
+import copy
+
+converted_word = "ANBESTI$AS"
+new_list = []
+characters = [i for i in converted_word]
+sort = copy.deepcopy(characters)
+sort.sort()
+
+for i in range(len(converted_word)):
+  new_list.append(characters[i]+sort[i])
+new_list.sort()
+for j in range(len(converted_word)-2):
+  for i in range(len(converted_word)):
+    new_list.append(characters[i] + new_list[i])
+  new_list = new_list[len(converted_word):]
+  new_list.sort()
+print(new_list[0][1:])
